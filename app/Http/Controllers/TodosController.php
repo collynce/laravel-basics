@@ -68,7 +68,7 @@ class TodosController extends Controller
     {
         $todo = Todo::findOrFail($id);
         $todo->status = true;
-        $todo->save();
+        $todo->update();
         return redirect()->route('todos.index');
     }
 
