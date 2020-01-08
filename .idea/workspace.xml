@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4f64651-a8bd-4c48-bd0b-66eb81c0411d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TodosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TodosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_08_141644_create_todos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_08_141644_create_todos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,6 +133,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -160,7 +163,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1578482492690</updated>
-      <workItem from="1578482496098" duration="12513000" />
+      <workItem from="1578482496098" duration="18566000" />
     </task>
     <servers />
   </component>
@@ -175,6 +178,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="378" y="162" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.800@0.0.1280.800" timestamp="1578500555700" />
+    <state x="221" y="0" key="CommitChangelistDialog2" timestamp="1578522592090">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="221" y="0" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1578522592090" />
     <state width="1238" height="205" key="GridCell.Tab.0.bottom" timestamp="1578482545877">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -195,5 +202,9 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="299" y="207" key="NewPhpClassDialog/0.0.1280.800@0.0.1280.800" timestamp="1578500274670" />
+    <state x="141" y="39" key="SettingsEditor" timestamp="1578522828763">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="141" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1578522828763" />
   </component>
 </project>

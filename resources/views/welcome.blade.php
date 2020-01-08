@@ -1,71 +1,103 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
+<div class="container-fluid">
+    <div class="card">
 
-        <title>Laravel</title>
+        <div class="card-body">
+            <div class="col-10 mx-auto">
 
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <script src="{{asset('js/app.js')}}" defer></script>
-
-        <!-- Styles -->
-        <link href="{{asset('css/app.css')}}" rel="stylesheet">
-        <!-- Styles -->
-    </head>
-    <body>
-
-        <div class="container">
-            {!! Form::open(['method' => 'POST', 'route' => ['todos.store']]) !!}
-            <div class="content">
-                {!! Form::label('todo', 'Todo Name', ['class' => 'control-label']) !!}
-                {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => 'Todo Name', 'required' => '']) !!}
-                <p class="help-block"></p>
-                <button class="btn btn-primary">jjjjjj</button>
+                <div class="card">
+                    <div class="card-header">
+                        Add Todo Task
+                    </div>
+                    <div class="card-body">
+                        {!! Form::open(['method' => 'POST', 'route' => ['todos.store']]) !!}
+                        <div class="content">
+                            <div class="form-group">
+                                {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => 'Enter task', 'required' => '']) !!}
+                                <p class="help-block"></p>
+                                <button class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                        {!! Form::close() !!}
+                    </div>
+                </div>
             </div>
-            {!! Form::close() !!}
-            <div class="tables">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">First</th>
-                            <th scope="col">First</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    @foreach ($todos as $todo)
-                    <tr>
-                        <td scope="row">{{$todo->name}}</td>
-                        <td scope="row">{{$todo->status}}</td>
-                        <td scope="row">
-{{--                            <a href="{{ route('todos.update',[$todo->id]) }}" class="btn btn-xs btn-primary">Complete</a>--}}
-                            {!! Form::open(
-                                array(
-                                'style' => 'display: inline-block;',
-                                'method' => 'PUT',
-                                'onsubmit' => "return confirm('".trans("You are about to update! Proceed?")."');",
-                                'route' => ['todos.update', $todo->id])) !!}
-                            {!! Form::submit(trans('Completed'), array('class' => 'btn btn-xs btn-success')) !!}
-                            {!! Form::close() !!}
-                            {!! Form::open(array(
-                                'style' => 'display: inline-block;',
-                                'method' => 'DELETE',
-                                $value = 'true',
-                                'onsubmit' => "return confirm('".trans("You are about to delete! Proceed?")."');",
-                                'route' => ['todos.destroy', $todo->id])) !!}
-                            {!! Form::submit(trans('Delete'), array('class' => 'btn btn-xs btn-danger')) !!}
-                            {!! Form::close() !!}
-                        </td>
+            <hr>
+            <div class="mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        Todo Tasks
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-center">
+                            <table class="table table-striped">
+                                <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Status</th>
+                                    <th>Created At</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @if (count($todos) > 0)
+                                    @foreach ($todos as $todo)
+                                        <tr>
+                                            <td>{{$todo->id}}</td>
+                                            <td>{{$todo->name}}</td>
 
-                    </tr>
-                    @endforeach
-                    </tbody>
+                                            <td>
+                                                @if($todo->status == false)
+                                                    Incomplete
+                                                @else
+                                                    Completed
+                                                @endif
+                                            </td>
+                                            <td>{{$todo->created_at}}</td>
 
-                </table>
+                                            <td>
+                                                {!! Form::open(
+                                                    array(
+                                                    'style' => 'display: inline-block;',
+                                                    'method' => 'PUT',
+
+                                                    'onsubmit' => "return confirm('".trans("You are about to update! Proceed?")."');",
+                                                    'route' => ['todos.update', $todo->id])) !!}
+                                                @if($todo->status == false)
+                                                    {!! Form::submit(trans('Mark Complete'), array('class' => 'btn btn-xs btn-warning')) !!}
+                                                @else
+                                                    {!! Form::submit(trans('Completed'), array('class' => 'btn btn-xs btn-success', 'disabled'=>'disabled')) !!}
+                                                @endif
+
+                                                {!! Form::close() !!}
+                                            </td>
+                                            <td> {!! Form::open(array(
+                                    'style' => 'display: inline-block;',
+                                    'method' => 'DELETE',
+                                    $value = 'true',
+                                    'onsubmit' => "return confirm('".trans("You are about to delete! Proceed?")."');",
+                                    'route' => ['todos.destroy', $todo->id])) !!}
+                                                {!! Form::submit(trans('Delete'), array('class' => 'btn btn-xs btn-danger')) !!}
+                                                {!! Form::close() !!}</td>
+                                        </tr>
+                                    @endforeach
+                                @else
+                                    <tr>
+                                        <td colspan="10">No entries available</td>
+                                    </tr>
+                                @endif
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+</div>
 
-    </body>
+</body>
 </html>
