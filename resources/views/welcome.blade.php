@@ -36,7 +36,6 @@
                                     <th scope="col">Status</th>
                                     <th>Created At</th>
                                     <th scope="col"></th>
-                                    <th scope="col"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -71,19 +70,21 @@
                                                 @if($todo->status == false)
                                                     {!! Form::submit(trans('Mark Complete'), array('class' => 'btn btn-xs btn-warning')) !!}
                                                 @else
-                                                    <p class="alert alert-success" role="alert">Completed</p>
+                                                    <button class="btn btn-success btn-xs disabled" disabled
+                                                            role="alert">Completed
+                                                    </button>
                                                 @endif
 
                                                 {!! Form::close() !!}
-                                            </td>
-                                            <td> {!! Form::open(array(
+                                                {!! Form::open(array(
                                     'style' => 'display: inline-block;',
                                     'method' => 'DELETE',
                                     $value = 'true',
                                     'onsubmit' => "return confirm('".trans("You are about to delete! Proceed?")."');",
                                     'route' => ['todos.destroy', $todo->id])) !!}
                                                 {!! Form::submit(trans('Delete'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                                {!! Form::close() !!}</td>
+                                                {!! Form::close() !!}
+                                            </td>
                                         </tr>
                                     @endforeach
                                 @else
