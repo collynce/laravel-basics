@@ -32,7 +32,7 @@
                                 <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Name</th>
+                                    <th scope="col">Todo Task</th>
                                     <th scope="col">Status</th>
                                     <th>Created At</th>
                                     <th scope="col"></th>
