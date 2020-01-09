@@ -1,10 +1,8 @@
 @extends('layouts.app')
 <div class="container-fluid">
     <div class="card">
-
         <div class="card-body">
             <div class="col-10 mx-auto">
-
                 <div class="card">
                     <div class="card-header">
                         Add Todo Task
@@ -55,7 +53,12 @@
                                                     Completed
                                                 @endif
                                             </td>
-                                            <td>{{$todo->created_at}}</td>
+                                            <td>{{
+
+
+                                                $todo->created_at
+
+                                                }}</td>
 
                                             <td>
                                                 {!! Form::open(
@@ -68,7 +71,7 @@
                                                 @if($todo->status == false)
                                                     {!! Form::submit(trans('Mark Complete'), array('class' => 'btn btn-xs btn-warning')) !!}
                                                 @else
-                                                    {!! Form::submit(trans('Completed'), array('class' => 'btn btn-xs btn-success', 'disabled'=>'disabled')) !!}
+                                                    <p class="alert alert-success" role="alert">Completed</p>
                                                 @endif
 
                                                 {!! Form::close() !!}
